@@ -1,5 +1,6 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     module: {
@@ -67,6 +68,11 @@ module.exports = {
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: './_redirects'
+             }
+        ])
     ]
 };
