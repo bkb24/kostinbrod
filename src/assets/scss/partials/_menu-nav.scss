@@ -1,0 +1,73 @@
+#main-nav {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.nav-item {
+	display: inline-block;
+	width: 108px;
+	height: 160px;
+	margin: 1%;
+	cursor: pointer;
+	border: 3px solid transparent;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-repeat: no-repeat;
+	transition: all 0.2s ease-in-out;
+
+	&.active {
+		border-bottom: 3px solid #bfa03f;
+	}
+
+	&:hover {
+		filter: drop-shadow(0 0 5px #bfa03f);
+
+		.nav-item-line {
+			stroke-dasharray: 108;
+			stroke-dashoffset: 0;
+		}
+	}
+
+	border-radius: 7px;
+	overflow: hidden;
+}
+
+.history-button {
+	background-image: url('../img/nav/history.png');
+}
+
+.roman-button {
+	background-image: url('../img/nav/roman-past.png');
+}
+
+.theaters-button {
+	background-image: url('../img/nav/theaters.png');
+}
+
+.niva-button {
+	background-image: url('../img/nav/niva.png');
+}
+
+.nav-item-line {
+	width: 100%;
+	height: 100%;
+	stroke: #bfa03f;
+	stroke-width: 4;
+	stroke-dasharray: 0, 108;
+	stroke-dashoffset: -52;
+	transition: all .2s ease-in-out;
+	margin-bottom: -20px;
+}
+
+.router-link-exact-active {
+	.nav-item-line {
+		stroke-dasharray: 108;
+		stroke-dashoffset: 0;
+	}
+}
