@@ -52,7 +52,6 @@
                         mode="out-in"
                         @beforeLeave="beforeLeave"
                         @enter="enter"
-                        @afterEnter="afterEnter"
                     >
                         <router-view></router-view>
                     </transition>
@@ -117,7 +116,7 @@ export default {
             this.$refs.article.firstChild.style.height = (parseInt(height) + 64) + 'px';
 
             window.scrollTo({
-                top: this.$refs.navigation.getBoundingClientRect().top,
+                top: window.pageYOffset + this.$refs.navigation.getBoundingClientRect().top,
                 behavior: 'smooth'
             });
         }
@@ -137,13 +136,10 @@ export default {
 
             setTimeout(() => {
                 window.scrollTo({
-                    top: this.$refs.navigation.getBoundingClientRect().top,
+                    top: window.pageYOffset + this.$refs.navigation.getBoundingClientRect().top,
                     behavior: 'smooth'
                 });
             }, 1000);
-        },
-        afterEnter(element) {
-            // alert(123);
         }
     },
     components: { GerbItem }
