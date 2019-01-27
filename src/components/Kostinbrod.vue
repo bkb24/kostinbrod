@@ -3,47 +3,39 @@
     <div id="wrap-all">
 
         <header class="main-header">
-            <div class="header-image"></div>
+            <div class="lang-bar">
+                <div
+                    v-for="(lang, i) in locales"
+                    :key="i"
+                    v-bind:class="['lang', `lang-${lang.locale}`, { 'active': locale === lang.locale }]"
+                    @click="changeLocale(lang.locale)"
+                >
+                    {{ lang.name }}
+                </div>
+            </div>
+            <div class="main-heading">{{ $t('message.kostinbrod') }}</div>
         </header>
 
-        <div id="wrapper">
+        <main id="wrapper">
 
-            <div id="gerb-wrap">
-
-                <div id="gerb">
-                    <gerb-item :gerbItem="gerbItems.fort" />
-                    <gerb-item :gerbItem="gerbItems.sun" />
-                    <gerb-item :gerbItem="gerbItems.key" />
-                    <gerb-item :gerbItem="gerbItems.bird" />
-                </div><!-- gerb -->
-
-            </div><!-- gerb-wrap -->
+            <gerb></gerb>
 
             <!-- Nav with button for articles -->
             <div id="scroll-section" ref="navigation">
 
-                <div id="main-nav">
-                    <router-link class="nav-item history-button" to="/history">
+                <nav id="main-nav">
+                    <router-link v-for="pageRoute in pageRoutes"
+                        :key="pageRoute"
+                        class="nav-item"
+                        :to="`/${pageRoute}`"
+                    >
+                        <div v-bind:class="['nav-button', `${pageRoute}-button`]"></div>
+                        <div class="page-name">{{ $t(`message.pages.${pageRoute}.name`) }}</div>
                         <svg class="nav-item-line">
                             <line x1="0" y1="100%" x2="100%" y2="100%" />
                         </svg>
                     </router-link>
-                    <router-link class="nav-item roman-button" to="/roman-past">
-                        <svg class="nav-item-line">
-                            <line x1="0" y1="100%" x2="100%" y2="100%" />
-                        </svg>
-                    </router-link>
-                    <router-link class="nav-item theaters-button" to="/theaters">
-                        <svg class="nav-item-line">
-                            <line x1="0" y1="100%" x2="100%" y2="100%" />
-                        </svg>
-                    </router-link>
-                    <router-link class="nav-item niva-button" to="/niva-oil">
-                        <svg class="nav-item-line">
-                            <line x1="0" y1="100%" x2="100%" y2="100%" />
-                        </svg>
-                    </router-link>
-                </div>
+                </nav>
 
                 <!-- article -->
                 <div ref="article">
@@ -53,15 +45,14 @@
                         @beforeLeave="beforeLeave"
                         @enter="enter"
                     >
-                        <router-view></router-view>
+                        <router-view :key="$route.path"></router-view>
                     </transition>
                 </div>
 
             </div>
 
-        </div><!-- wrapper -->
+        </main>
 
-        <!-- edge of the scroll -->
         <div class="slider"></div>
 
     </div>
@@ -70,43 +61,19 @@
 
 <script>
 import '../assets/scss/styles.scss'
-import GerbItem from './GerbItem'
+import Gerb from './Gerb'
 import image from '../assets/img/gerb/gerb-bg.png'
 
 export default {
     name: 'kostinbrod',
     data() {
         return {
-            message: 'Works',
-            gerbItems: {
-                fort: {
-                    name: 'fort',
-                    text: `Костинброд е построен в местност, където е била разположена
-                        римска резиденция и крепостна стена.
-                        Символ за това е част от крепостна кула.`
-                },
-                sun: {
-                    name: 'sun',
-                    text: `Слънцето е един от най-хубавите и оптимистични
-                        хералдични символи и не случайно доминира в герба.
-                        Петелът и слъчогледът са и символи на зараждащата се икономика
-                        на Костинборд, включваща силно развито птицевъдство
-                        и емблематичната марка олио "Нива".`
-                },
-                key: {
-                    name: 'key',
-                    text: `Ключът, освен символ на гостоприемство, означава
-                        път, кръстопът, проход, в случая брод. Затова е поставен над река.`
-                },
-                bird: {
-                    name: 'bird',
-                    text: `Петелът е познат като емблема на гордост,
-                        храброст и чест. Той е и една от емблемите на
-                        Христос, подчертаващи неговата соларна символика –
-                        светлина и възкресение.`
-                }
-            },
-            prevHeight: 0,
+            locales: [
+                { locale: 'bg', name: 'бг' },
+                { locale: 'en', name: 'en' }
+            ],
+            pageRoutes: ['history', 'roman-past', 'theaters', 'niva-oil'],
+            prevHeight: 0
         }
     },
     mounted() {
@@ -126,6 +93,7 @@ export default {
             this.prevHeight = 0;
         },
         enter(element) {
+            let content = Array.from(element.childNodes).find(child => child.className == 'content');
             const { height } = getComputedStyle(element);
 
             element.style.height = this.prevHeight;
@@ -140,9 +108,24 @@ export default {
                     behavior: 'smooth'
                 });
             }, 1000);
+        },
+        changeLocale(locale) {
+            let storageLocale = localStorage.getItem('locale');
+            if (storageLocale != locale) {
+                localStorage.setItem('locale', locale);
+                location.reload();
+            }
         }
     },
-    components: { GerbItem }
+    computed: {
+        locale() {
+            if (localStorage.getItem('locale') === null) {
+                localStorage.setItem('locale', 'en');
+            }
+            return localStorage.getItem('locale');
+        }
+    },
+    components: { Gerb }
 }
 </script>
 

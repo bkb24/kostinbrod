@@ -1,0 +1,89 @@
+%fort-closed {
+    .fort {
+        .scroll {
+            min-height: 0px;
+            max-height: 0px;
+            transition-duration: 1.7s;
+            transition-delay: 0s;
+        }
+
+        .text {
+            transition-delay: 0s;
+        }
+    }
+
+    .key {
+        transition-delay: 1.7s;
+        transform: translateX(0%);
+    }
+
+    .bird {
+        transition-delay: 1.7s;
+        transform: translateX(0%);
+    }
+}
+
+%fort-opened {
+    .fort {
+        .scroll {
+            min-height: 35px;
+            max-height: 500px;
+            opacity: 1;
+            transition-delay: .5s;
+        }
+
+        .text {
+            transition-delay: 1.2s;
+        }
+    }
+
+    .key {
+        transition-delay: 0s;
+        transform: translateX(-107%);
+    }
+
+    .bird {
+        transition-delay: 0s;
+        transform: translateX(107%);
+    }
+}
+
+#gerb {
+    .fort {
+        background-image: url('../img/gerb/castle.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        z-index: 999;
+
+        .icon {
+            width: 180px;
+            height: 55px;
+            background-image: url('../img/gerb/castle.png');
+            background-repeat: no-repeat;
+
+            &:hover{
+                background-image: url('../img/gerb/castle.gif');
+            }
+        }
+
+        .scroll {
+            opacity: 1;
+            max-height: 0;
+            min-height: 0;
+            transition: all 3s ease-in-out;
+            z-index: 999;
+        }
+
+        .text {
+            transition: height 1s ease-in-out;
+        }
+    }
+
+    &.fort-opened {
+        @extend %fort-opened;
+
+        &.closing {
+            @extend %fort-closed;
+        }
+    }
+}

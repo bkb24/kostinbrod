@@ -1,0 +1,77 @@
+%bird-closed {
+    .bird {
+        .scroll {
+            left: -100px;
+            transition-delay: .5s;
+        }
+
+        .text {
+            transition-delay: 0s;
+        }
+    }
+
+    .key {
+        transition-delay: .5s;
+        transform: translate(0, 0);
+    }
+}
+
+%bird-opened {
+    .bird {
+        .scroll {
+            height: auto;
+            left: -191px;
+            width: 180px;
+            transform: translateX(7px);
+            opacity: 1;
+        }
+
+        .text {
+            transition-delay: .5s;
+        }
+    }
+
+    .key {
+        z-index: 10;
+        transform: translateX(-184px);
+    }
+}
+
+#gerb {
+    .bird {
+        @extend %key-bird-icon;
+        background-image: url('../img/gerb/bird.png');
+        background-repeat: no-repeat;
+
+        .icon {
+            background-image: url('../img/gerb/bird.png');
+            background-repeat: no-repeat;
+
+            &:after {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1.5 -1.5 94 113' %3E%3Cpath d=' M 91 0 L 91 32 Q 77.25 97.25 18 110 L 0 110 L 0 0 L 91 0 Z ' fill='none' stroke-width='3' stroke='rgb(32, 32, 0)' /%3E%3C/svg%3E");
+                left: -3px;
+            }
+
+            &:hover {
+                background-image: url('../img/gerb/bird.gif');
+            }
+        }
+
+        .scroll {
+            height: 0;
+            z-index: -1;
+            transition: left .5s ease-in-out;
+            top: $scroll-top;
+            left: -100px;
+        }
+
+    }
+
+    &.bird-opened {
+        @extend %bird-opened;
+
+        &.closing {
+            @extend %bird-closed;
+        }
+    }
+}

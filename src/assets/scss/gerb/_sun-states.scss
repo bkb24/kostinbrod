@@ -1,0 +1,73 @@
+%sun-closed {
+    .sun {
+        .text {
+            height: 0;
+            transition-delay: 0s;
+        }
+    }
+
+    .key {
+        transition-delay: 1s;
+        transform: translateX(0%);
+    }
+
+    .bird {
+        transition-delay: 1s;
+        transform: translateX(0%);
+    }
+}
+
+%sun-opened {
+    .sun {
+        .text {
+            height: 250px;
+            transition-delay: .5s;
+        }
+
+        .scroll {
+            opacity: 1;
+        }
+    }
+
+    .key {
+        transform: translateX(-107%);
+    }
+
+    .bird {
+        transform: translateX(107%);
+    }
+}
+
+#gerb {
+    .sun {
+        height: 115px;
+        width: 200px;
+        background-image: url('../img/gerb/sun.png');
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .icon {
+            width: 186px;
+            height: 115px;
+            background-image: url('../img/gerb/sun.png');
+            background-repeat: no-repeat;
+            border: 3px solid rgb(32, 32, 0);
+
+            &:hover{
+                background-image: url('../img/gerb/sun.gif');
+            }
+        }
+
+        .text {
+            transition: all 1s ease-in-out;
+        }
+    }
+
+    &.sun-opened {
+        @extend %sun-opened;
+
+        &.closing {
+            @extend %sun-closed;
+        }
+    }
+}

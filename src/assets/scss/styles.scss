@@ -1,5 +1,9 @@
-@import "./source/base";
-@import "./partials/main";
-@import "./partials/menu-nav";
-@import "./partials/gerb";
-@import "./partials/content";
+@import "./base";
+@import "./main";
+@import "./menu-nav";
+@import "./content";
+@import "./gerb/main";
+@import "./gerb/fort-states";
+@import "./gerb/sun-states";
+@import "./gerb/key-states";
+@import "./gerb/bird-states";

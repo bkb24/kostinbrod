@@ -1,0 +1,28 @@
+{
+    "kostinbrod": "Kostinbrod",
+    "close": "Close",
+    "gerb-items": {
+        "fort": "Kostinbrod was build in an area, where there was a Roman residence with a fort wall. A part of a fort tower is used as a symbol in the gerb.",
+        "sun": "The sun is on of the most wonderful and optimistic heraldic symbols and it is no coincidence it stands out the most in the gerb. The rooster and the sunflower are symbols of the emerging Kostinbrod economy, including highly developed aviculture and the infamous sunflower oil brand \"Нива\" (Niva).",
+        "key": "The key is not only a symbol of hospitality, but it means a road, crossroad, passageway or in this case a ford. That's why there's a river above.",
+        "bird": "The rooster is known as a symbol of pride, bravery and honor. It's also one of the emblems of Christ, emphasizing it's solar symbolism - light and resurrection."
+    },
+    "pages": {
+        "history": {
+            "name": "History",
+            "title": "History of the city"
+        },
+        "roman-past": {
+            "name": "Romans",
+            "title": "Roman past"
+        },
+        "theaters": {
+            "name": "Theaters",
+            "title": "History of Kostinbrod's theater"
+        },
+        "niva-oil": {
+            "name": "Oil Niva",
+            "title": "Sunflower oil \"Niva\""
+        }
+    }
+}
