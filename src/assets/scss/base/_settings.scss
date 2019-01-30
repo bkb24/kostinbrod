@@ -1,0 +1,17 @@
+$colors: (
+    bg: rgb(131, 9, 9),
+    text-main: #d8b54e,
+    shadow: #420808,
+    golden: #866700,
+    text-secondary: #bfa03f,
+    text-content: #ffe699
+);
+
+$z-index-levels: (
+    behind: -1,
+    1: 10,
+    2: 20,
+    3: 30,
+    4: 40,
+    5: 50
+);

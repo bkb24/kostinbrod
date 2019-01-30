@@ -1,0 +1,39 @@
+.lang-bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 24px;
+	@include text-color();
+
+	@extend %drop-shadow;
+	border-bottom: none;
+
+	.lang {
+		opacity: .7;
+		padding: 10px 10px 2px 10px;
+		position: relative;
+
+		&.active {
+			border-bottom: 1px solid get-color();
+			opacity: 1;
+		}
+
+		&:hover {
+			cursor: pointer;
+			opacity: 1;
+		}
+
+		&:not(:last-of-type) {
+			&:after {
+				content: '|';
+				position: absolute;
+				top: 0;
+				right: -1px;
+				width: 2px;
+				height: 100%;
+				padding-top: 10px;
+			}
+		}
+	}
+}

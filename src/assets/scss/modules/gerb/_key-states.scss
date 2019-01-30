@@ -1,5 +1,7 @@
 %key-closed {
     .key {
+        transform: translateX(0);
+
         .scroll {
             left: 10px;
             transition-delay: .5s;
@@ -18,6 +20,10 @@
 
 %key-opened {
     .key {
+        @include breakpoint(384px) {
+            transform: translateX(-50%);
+        }
+
         .scroll {
             left: 100px;
             width: 180px;
@@ -37,29 +43,23 @@
 
 #gerb {
     .key {
-        @extend %key-bird-icon;
-        background-image: url('../img/gerb/key.png');
-        background-repeat: no-repeat;
+        @extend %gerb-bottom-wing;
+        transform: translateX(0);
 
         .icon {
-            background-image: url('../img/gerb/key.png');
-            background-repeat: no-repeat;
-            position: relative;
+            &:before {
+                background: url('../img/gerb/key.gif') no-repeat;
+            }
 
             &:after {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1.5 -1.5 94 113' %3E%3Cpath d=' M 0 0 L 0 32 Q 13.75 97.25 73 110 L 91 110 L 91 0 L 0 0 Z ' fill='none' stroke-width='3' stroke='rgb(32, 32, 0)' /%3E%3C/svg%3E");
             }
-
-            &:hover {
-                background-image: url('../img/gerb/key.gif');
-            }
         }
 
         .scroll {
-            z-index: -1;
-            transition: left .5s ease-in-out;
-            top: $scroll-top;
             left: 10px;
+            transition: left .5s ease-in-out;
+            @include z-level('behind');
         }
     }
 

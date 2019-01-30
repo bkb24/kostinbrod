@@ -6,11 +6,7 @@
         }
     }
 
-    .key {
-        transition-delay: 1s;
-        transform: translateX(0%);
-    }
-
+    .key,
     .bird {
         transition-delay: 1s;
         transform: translateX(0%);
@@ -40,21 +36,15 @@
 
 #gerb {
     .sun {
-        height: 115px;
-        width: 200px;
-        background-image: url('../img/gerb/sun.png');
-        background-repeat: no-repeat;
-        background-position: center;
+        @include size(200px, 115px);
 
         .icon {
-            width: 186px;
-            height: 115px;
-            background-image: url('../img/gerb/sun.png');
-            background-repeat: no-repeat;
+            @include size(186px, 115px);
             border: 3px solid rgb(32, 32, 0);
 
-            &:hover{
-                background-image: url('../img/gerb/sun.gif');
+            &:before {
+                background: url('../img/gerb/sun.gif') no-repeat;
+                background-position: center;
             }
         }
 

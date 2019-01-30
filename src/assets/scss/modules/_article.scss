@@ -1,0 +1,154 @@
+.content-wrap {
+	width: 540px;
+	margin: auto;
+
+	@include breakpoint(600px) {
+		width: 90%;
+		margin: auto;
+		margin-top: 20px;
+		padding-bottom: 30px;
+	}
+}
+
+.ornament {
+	@include size(100px, 17px);
+	margin: auto;
+
+	background-image: url('../img/ornament.png');
+	background-repeat: no-repeat;
+	background-size: 100px;
+}
+
+.page-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 41px;
+
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+	font-size: 32px;
+	@include text-color();
+
+	@extend %text-shadow;
+	@extend %drop-shadow;
+}
+
+.content {
+	@include text-color('text-content');
+	margin-top: 30px;
+
+	p {
+		margin-top: 20px;
+		margin-bottom: 20px;
+
+		font-size: 21px;
+		line-height: 130%;
+		text-align: justify;
+		text-indent: 40px;
+	}
+
+	& p:first-child::first-letter {
+		font-size: 40px;
+	}
+
+	span {
+		font-size: 34px;
+	}
+
+	ul {
+		text-align: left;
+		padding: 0;
+		margin: 20px;
+		margin-bottom: 40px;
+		margin-left: 40px;
+
+		li {
+			margin-top: 10px;
+			font-size: 21px;
+			line-height: 130%;
+			text-decoration: none;
+		}
+	}
+
+	.header-images {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 30px;
+	}
+
+	.article-img {
+		height: 100px;
+		min-width: 100px;
+		margin: 10px;
+	}
+
+	img {
+		display: block;
+		height: 100px;
+		border: 3px solid get-color('golden');
+		border-radius: 5px;
+		box-shadow: 0 0 15px 0 #000;
+	}
+}
+
+.page-slide-wrap {
+	display: flex;
+	justify-content: center;
+
+	position: relative;
+
+	@include text-color('text-content');
+	font-size: 22px;
+
+	margin: 35px 0px 15px 0px;
+	text-decoration: none;
+
+	&:after {
+		position: absolute;
+		content: '';
+		top: -7px;
+		left: 50%;
+
+		border-bottom: 7px solid get-color('text-content');
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+
+		transform: translateX(-50%);
+	}
+
+	.page-slider {
+		position: relative;
+	}
+
+	.page-slide-line {
+		position: absolute;
+		top: 5px;
+		left: 50%;
+		width: 100px;
+		height: 100%;
+
+		transform: translateX(-50%);
+
+		stroke: get-color('text-content');
+		stroke-width: 4;
+		stroke-dasharray: 2, 100;
+		stroke-dashoffset: -49.5;
+
+		transition: all .2s ease-in-out;
+	}
+
+	&:hover {
+		cursor: pointer;
+		text-decoration: none;
+		@extend %drop-shadow;
+
+		.page-slide-line {
+			stroke-dasharray: 100;
+			stroke-dashoffset: 0;
+		}
+	}
+}

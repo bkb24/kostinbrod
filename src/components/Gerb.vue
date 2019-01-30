@@ -1,5 +1,6 @@
 <template>
     <div id="gerb-wrap">
+        <div class="gerb-bg sprite sprite-gerb-bg"></div>
         <div
             id="gerb"
             ref="gerb"

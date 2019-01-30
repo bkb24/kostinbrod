@@ -50,19 +50,13 @@
 
 #gerb {
     .fort {
-        background-image: url('../img/gerb/castle.png');
-        background-repeat: no-repeat;
-        background-position: top center;
-        z-index: 999;
+        @include z-level(4);
 
         .icon {
-            width: 180px;
-            height: 55px;
-            background-image: url('../img/gerb/castle.png');
-            background-repeat: no-repeat;
+            @include size(180px, 55px);
 
-            &:hover{
-                background-image: url('../img/gerb/castle.gif');
+            &:before {
+                background: url('../img/gerb/fort.gif');
             }
         }
 
@@ -71,7 +65,7 @@
             max-height: 0;
             min-height: 0;
             transition: all 3s ease-in-out;
-            z-index: 999;
+            @include z-level(4);
         }
 
         .text {

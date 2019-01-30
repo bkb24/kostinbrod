@@ -1,5 +1,7 @@
 %bird-closed {
     .bird {
+        transform: translateX(0);
+
         .scroll {
             left: -100px;
             transition-delay: .5s;
@@ -18,10 +20,13 @@
 
 %bird-opened {
     .bird {
+        @include breakpoint(384px) {
+            transform: translateX(50%);
+        }
+
         .scroll {
-            height: auto;
             left: -191px;
-            width: 180px;
+            @include size(180px , auto);
             transform: translateX(7px);
             opacity: 1;
         }
@@ -32,37 +37,32 @@
     }
 
     .key {
-        z-index: 10;
+        @include z-level(2);
         transform: translateX(-184px);
     }
 }
 
 #gerb {
     .bird {
-        @extend %key-bird-icon;
-        background-image: url('../img/gerb/bird.png');
-        background-repeat: no-repeat;
+        @extend %gerb-bottom-wing;
+        transform: translateX(0);
 
         .icon {
-            background-image: url('../img/gerb/bird.png');
-            background-repeat: no-repeat;
+            &:before {
+                background: url('../img/gerb/bird.gif') no-repeat;
+            }
 
             &:after {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1.5 -1.5 94 113' %3E%3Cpath d=' M 91 0 L 91 32 Q 77.25 97.25 18 110 L 0 110 L 0 0 L 91 0 Z ' fill='none' stroke-width='3' stroke='rgb(32, 32, 0)' /%3E%3C/svg%3E");
                 left: -3px;
             }
-
-            &:hover {
-                background-image: url('../img/gerb/bird.gif');
-            }
         }
 
         .scroll {
-            height: 0;
-            z-index: -1;
-            transition: left .5s ease-in-out;
-            top: $scroll-top;
             left: -100px;
+            height: 0;
+            transition: left .5s ease-in-out;
+            @include z-level('behind');
         }
 
     }

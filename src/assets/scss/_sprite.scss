@@ -1,0 +1,61 @@
+.sprite {
+    background-image: url('../img/spritesheet.png');
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-bar {
+    width: 180px;
+    height: 17px;
+    background-position: -5px -5px;
+}
+
+.sprite-bird {
+    background-position: -195px -5px;
+}
+
+.sprite-fort {
+    background-position: -293px -5px;
+}
+
+.sprite-edge {
+    width: 830px;
+    height: 230px;
+    background-position: -483px -5px;
+}
+
+.sprite-gerb-bg {
+    width: 500px;
+    height: 300px;
+    background-position: -1323px -5px;
+}
+
+.sprite-history {
+    background-position: -1833px -5px;
+}
+
+.sprite-key {
+    background-position: -1951px -5px;
+}
+
+.sprite-niva-oil {
+    background-position: -2050px -5px;
+}
+
+.sprite-ornament {
+    width: 235px;
+    height: 44px;
+    background-position: -2168px -5px;
+}
+
+.sprite-roman-past {
+    background-position: -2413px -5px;
+}
+
+.sprite-sun {
+    background-position: -2531px -5px;
+}
+
+.sprite-theaters {
+    background-position: -2721px -5px;
+}

@@ -10,14 +10,25 @@
         <div class="content">
             <slot></slot>
 
-            <div v-if="images[pageName]">
-                <img v-for="(img, i) in images[pageName]" :key="i" :src="getImage(img.src)" :alt="img.alt" />
+            <div class="header-images" v-if="images[pageName]">
+                <div class="article-img" v-for="(img, i) in images[pageName]" :key="i">
+                    <img :src="getImage(img.src)" :alt="img.alt" />
+                </div>
             </div>
 
             <div v-html="pageContent.body"></div>
 
             <footer>
-                <router-link class="page-slide" to="/">{{ $t('message.close') }}</router-link>
+                <router-link class="page-slide-wrap" to="/">
+                    <div class="page-slider">
+                        <div class="page-slider-text">
+                            {{ $t('message.close') }}
+                        </div>
+                        <svg class="page-slide-line">
+                            <line x1="0" y1="100%" x2="100%" y2="100%" />
+                        </svg>
+                    </div>
+                </router-link>
                 <div class="ornament"></div>
             </footer>
         </div>
@@ -43,7 +54,7 @@ export default {
     },
     methods: {
         getImage(src) {
-            return require(`./../assets/img/nav/${src}`);
+            return require(`./../assets/img/articles/${src}`);
         }
     },
     computed: {
@@ -53,9 +64,6 @@ export default {
         pageContent() {
             let locale = localStorage.getItem('locale');
             return this.$i18n.messages[locale].message[this.pageName].default;
-        },
-        image() {
-            return require('./../assets/img/nav/' + this.pageName + '-text.png');
         }
     }
 }

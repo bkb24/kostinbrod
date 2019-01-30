@@ -1,3 +1,30 @@
+@function get-color($name: 'text-main') {
+    @return map-get($colors, $name);
+}
+
+@mixin text-color($name: 'text-main') {
+    color: get-color($name);
+}
+
+@mixin size($w, $h: null) {
+    @if ($h) {
+        width: $w;
+        height: $h;
+    } @else {
+        width: $w;
+        height: $w;
+    }
+}
+
+@mixin size-100() {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin z-level($level) {
+    z-index: map-get($z-index-levels, $level);
+}
+
 @mixin breakpoint($max-width, $min-width: null) {
     @if $max-width == xs {
         @media (max-width: 767px) { @content; }

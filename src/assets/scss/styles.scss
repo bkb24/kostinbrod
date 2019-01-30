@@ -1,9 +1,14 @@
-@import "./base";
+// base styles and settings
+@import "./base/settings";
+@import "./base/mixins";
+@import "./base/utils";
+
+@import "./sprite";
 @import "./main";
-@import "./menu-nav";
-@import "./content";
-@import "./gerb/main";
-@import "./gerb/fort-states";
-@import "./gerb/sun-states";
-@import "./gerb/key-states";
-@import "./gerb/bird-states";
+
+// Include modules
+@import "./modules/language-bar";
+@import "./modules/scroller";
+@import "./modules/gerb/main";
+@import "./modules/menu-nav";
+@import "./modules/article";

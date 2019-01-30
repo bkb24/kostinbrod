@@ -1,13 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-// Router components
-import { i18n } from './js/locales';
-import ArticleLayout from './components/ArticleLayout'
+import { i18n } from './lang/locales';
+import Page from './components/Page'
 
 Vue.use(VueRouter);
-
-window.i18n = i18n;
 
 const router = new VueRouter({
     mode: 'history',
@@ -15,22 +11,22 @@ const router = new VueRouter({
         {
             path: '/history',
             name: 'history',
-            component: ArticleLayout
+            component: Page
         },
         {
             path: '/roman-past',
             name: 'roman-past',
-            component: ArticleLayout
+            component: Page
         },
         {
             path: '/theaters',
             name: 'theaters',
-            component: ArticleLayout
+            component: Page
         },
         {
             path: '/niva-oil',
             name: 'niva-oil',
-            component: ArticleLayout
+            component: Page
         }
     ]
 });

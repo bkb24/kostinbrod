@@ -1,11 +1,7 @@
 import Vue from 'vue'
 import Kostinbrod from './components/Kostinbrod'
 import router from './router'
-import { i18n } from './js/locales'
-
-import ArticleLayout from './components/ArticleLayout'
-
-Vue.component('article-layout', ArticleLayout)
+import { i18n } from './lang/locales'
 
 new Vue({
     el: '#kostinbrod',

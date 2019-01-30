@@ -1,0 +1,19 @@
+%text-shadow {
+    text-shadow:
+		1px 1px 0px get-color('shadow'),
+		-1px -1px 0 get-color('shadow'),
+		1px -1px 0 get-color('shadow'),
+		-1px 1px 0 get-color('shadow'),
+        1px 1px 0 get-color('shadow');
+}
+
+%drop-shadow {
+    filter: drop-shadow(0 0 5px get-color('shadow'));
+}
+
+%absolute-full {
+	position: absolute;
+	top: 0;
+	left: 0;
+	@include size-100();
+}

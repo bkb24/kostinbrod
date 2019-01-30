@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuei18n from 'vue-i18n'
-import enMessags from '../lang/en/titles.json'
-import bgMessags from '../lang/bg/titles.json'
+import enMessags from './en/titles.json'
+import bgMessags from './bg/titles.json'
 
 let localStorageLocale = localStorage.getItem('locale');
 if (!localStorageLocale) {

@@ -1,0 +1,30 @@
+@import './gerb-item';
+@import './gerb-bottom';
+@import './fort-states';
+@import './sun-states';
+@import './key-states';
+@import './bird-states';
+
+#gerb-wrap {
+	position: relative;
+	height: 300px;
+	margin: auto;
+	text-align: center;
+
+	.gerb-bg {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+#gerb {
+	position: absolute;
+	left: 50%;
+	margin: auto;
+	padding-top: 7px;
+	text-align: center;
+	transform: translateX(-50%);
+	@include z-level(4);
+}
