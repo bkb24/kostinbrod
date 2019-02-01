@@ -1,17 +1,10 @@
-# kostinbrod 
-Kostinbrod (Bulgarian city) anniversary contest. 
----
-Interactive scroll with the city's coat of arms and other information about the city's history and some things it is famous for.
-
----
-
-![Alt text](/kostinbrod-screen.png?raw=true "Kostinbrod")
+# City of Kostinbrod 
+A simple SPA website about the city of Kostinbrod, created for the city's anniversary.
+It has been translated to English and there's an option to change the language to Bulgarian.
 
 ---
 
 ### Things used
-* HTML, CSS, SASS
-
-* Javascript, ajax, jQuery
-
-* gulp
+* HTML, CSS, SASS, SVG
+* Vue, vue-i18n
+* webpack
