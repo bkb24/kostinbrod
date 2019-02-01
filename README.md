@@ -4,6 +4,8 @@ It has been translated to English and there's an option to change the language t
 
 ---
 
+![alt text](kostinbrod-screen.png?raw=true "Kostinbrod")
+
 ### Things used
 * HTML, CSS, SASS, SVG
 * Vue, vue-i18n
