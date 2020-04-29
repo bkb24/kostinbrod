@@ -2,7 +2,7 @@
 A simple SPA website about the city of Kostinbrod, created for the city's anniversary. 
 It has been translated to English and there's an option to change the language to Bulgarian.
 
-Live: https://kostinbrod.netlify.com
+Live: https://kostinbrod.netlify.app
 
 ---
 
